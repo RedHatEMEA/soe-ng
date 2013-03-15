@@ -1,6 +1,6 @@
-mydomain = <%= maildomain %>
+mydomain = <%= @maildomain %>
 myorigin = $mydomain
 inet_interfaces = 127.0.0.1
-relayhost = <%= mailhost %>
+relayhost = <%= @mailhost %>
 virtual_alias_maps = hash:/etc/postfix/virtual
 sender_canonical_maps = hash:/etc/postfix/sender_canonical
