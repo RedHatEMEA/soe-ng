@@ -1,0 +1,180 @@
+# 
+#
+#custom extension to applicationprocess schema for ee.
+#rnunn@redhat.com
+#christina@redhat.com
+#
+#version=0.05
+#
+#ver=0.05 modifications for further generalization (christina@redhat.com)
+#ver=0.04 added config changes (christina@redhat.com)
+#ver=0.03 added config changes. 
+#ver=0.02 added LinuxVersion for build tracking (rnunn@redhat.com)
+#ver=0.01 initial (rnunn@redhat.com)
+
+
+# Brand
+# Code for Server manufacturer.
+# 
+attributetype ( 2.5.6.11.91
+	NAME 'brand'
+	DESC 'server manufacturer i.e. VMWare, Red Hat, HP, Dell'
+	EQUALITY caseIgnoreMatch
+	SUBSTR caseIgnoreSubstringsMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+# model
+# Code for Server model
+attributetype ( 2.5.6.11.92
+	NAME 'model'
+	DESC 'server model i.e. ESXi, ProLiant, KVM, etc'
+	EQUALITY caseIgnoreMatch
+	SUBSTR caseIgnoreSubstringsMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+# country
+# Code for country location
+attributetype ( 2.5.6.11.93
+	NAME 'country'
+	DESC 'identifies server location by country (use 2 letter code identifier GB for Great Britain, GE for Germany)'
+	EQUALITY caseIgnoreMatch
+	SUBSTR caseIgnoreSubstringsMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+	SINGLE-VALUE )
+
+# state
+# Code for state
+attributetype ( 2.5.6.11.94
+	NAME 'state'
+	DESC 'state server is located in (this could be county in the UK or region in Germany)'
+	EQUALITY caseIgnoreMatch
+	SUBSTR caseIgnoreSubstringsMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+# city
+# Code for city
+attributetype ( 2.5.6.11.95
+        NAME 'site'
+        DESC 'site server is located in by airport codes i.e. muc for Munic, lcy for London City, fab for Farnborough'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 
+	SINGLE-VALUE )
+
+
+# businessunit
+# Code for businessunit
+attributetype ( 2.5.6.11.96
+        NAME 'businessUnit'
+        DESC 'businessunit server is located in i.e. GPS-Collab, GLS, GSS, etc'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 
+	SINGLE-VALUE)
+
+# ipaddress
+# Code for ipaddress
+attributetype ( 2.5.6.11.97
+        NAME 'designatedIp'
+        DESC 'server ip address i.e. 192.168.122.2'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+# defgateway
+# code for defgateway
+attributetype ( 2.5.6.11.98
+        NAME 'designatedGateway'
+        DESC 'server default gateway ipaddress i.e. 192.168.122.1'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+# network
+# Code for netmask
+attributetype ( 2.5.6.11.99
+        NAME 'designatedNetmask'
+        DESC 'server netmask ipaddress i.e. 255.255.255.128'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+# remotename
+# Code for remotename
+attributetype ( 2.5.6.11.100
+        NAME 'designatedHostname'
+        DESC 'This is the FQDN of the server i.e. satellite.mydomain.com'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+# firewall zone that a server is in
+# can be in a DMZ or in a secure loction 
+attributetype ( 2.5.6.11.102
+        NAME 'firewall'
+        DESC 'The firewall zone this server is in i.e. normal, DMZ, Remote Site'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+# LinuxVersion to be used if we are using buildrpm
+attributetype ( 2.5.6.11.101
+        NAME 'buildVersion'
+        DESC 'Linux build version i.e. 1.0-4'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+#Server type of the server
+#This is where the satellite activation keys will be named 1-<db|web|app|free>
+#And we could have configuration application specific on top of the current one
+attributetype ( 2.5.6.11.103
+	NAME 'serverType'
+	DESC 'The kind of server this is (web|app|db|free)'
+	EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 
+	SINGLE-VALUE )
+
+#This is for the MOTD
+#They require a cluster name for this server use N/A if it's nothing
+attributetype ( 2.5.6.11.104
+	NAME 'clusterName'
+	DESC 'The name of the cluster this machine resides on i.e. RHEV, VMWare,  physical'
+	EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 
+	SINGLE-VALUE )
+
+#All virtual servers have a vlan attirbute for all their nics
+#
+attributeType ( 2.5.6.11.105
+	NAME 'designatedVlan'
+	DESC 'The vlan tag for the network interface i.e. 801'
+	EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+attributeType ( 2.5.6.11.106
+        NAME 'stage'
+        DESC 'The environment this server is in i.e. dev/qa/prod'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+# rh
+# objectClass definition for rh  applicationprocess extension. 
+#
+objectclass	( 2.5.6.11.89
+    NAME 'rh'
+	DESC 'RFC2798: Red Hat install servers tree'
+    STRUCTURAL
+        SUP applicationProcess
+	MUST ( designatedHostname )
+	MAY (
+		brand $ model $ country $ state $ site $
+		businessUnit $ stage $
+		buildVersion $ serverType $ firewall $ 
+		clusterName   $ designatedIp $ designatedGateway $ 
+		designatedNetmask $ designatedVlan )
+	)

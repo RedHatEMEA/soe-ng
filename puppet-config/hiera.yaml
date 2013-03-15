@@ -1,0 +1,16 @@
+---
+:backends:
+ - yaml
+ - puppet
+:hierarchy:
+ - "%{server_type}"
+ - "%{site}"
+ - "%{firewall}"
+ - "%{stage}"
+ - common
+
+:yaml:
+   :datadir: '/etc/puppet-config/hieradb'
+
+:puppet:
+   :datasource: data

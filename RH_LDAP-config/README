@@ -1,0 +1,25 @@
+quickstart installation guide
+
+make sure openldap-servers rpm is installed. 
+install openldap-clients if you want to have local ldapsearch too.
+copy slapd.conf to /etc/openldap
+copy rh.schema to /etc/openldap/schema
+mkdir /var/lb/rh
+chown ldap.ldap /var/lib/rh
+
+run data/setup.sh
+which creates objectClass entry using slapadd command and rh-detailed.ldiff 
+
+commands are detailed in ./data/setup.sh file to add and test objectclasses to ldap instance. 
+
+start ldap database and check with /usr/lib/mozldap/ldapsearch (requires the mosldap-tools rpm) examples in /data/setup.sh
+
+Either add entries to database using populate.pl script run against correctly formatted .csv export file, or:  
+stop ldap database and populate using slapadd and spain/portugal ldiffs
+
+cgi script for addition to the kickstart pre script section is located in 
+cgi-script with appropriate README containing explanation and usage examples. 
+
+
+
+ 

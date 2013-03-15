@@ -1,0 +1,26 @@
+############README populate.pl perl csv ldap conversion script
+
+USAGE: 
+1. create spreadsheet with the following fields: 
+action*, country, businesunit, default gateway, network ip, remotename, city, state, ipaddress, unique identifier, server brand, server Model, build version 
+
+*action can be: ADD or DELETE case sensitive. 
+
+2. export as csv. 
+
+3. run populate.pl <file.csv>
+   Note that the command can take multiple files as arguments and will work through each. 
+
+4. When deleting and adding LDAP entries, the script will generate /tmp/<timestamp>_<csvfilename>_[ " " || DELETE].ldiff file based on the actions: add or delete.
+
+5. if there is a problem re-import the backups using the following procedure:
+ 
+ -find latest pre-delete backup: 
+   ls -lrt /tmp/*.ldif
+
+ -re-apply using ldapmodify (requires the openldap-clients rpm):  
+  ldapmodify -F -v -a -0 -D 'cn=Manager,dc=mydomain,dc=com' -w - -f /tmp/2009-05-30_02-47_.ldif
+ 
+N.B. For large imports, it may be best to comment the Entry 'print' block to 
+suppress console output for every LDAP action.  
+

@@ -1,0 +1,25 @@
+cgi script to populate host variables based on example
+provided by Aram Kananov.
+
+Installation: 
+copy script to /var/www/cgi-bin/ directory of suitable web server. 
+if this is not the same host as the LDAP server change 'localhost' in the 
+following line to represent LDAP server hostname: 
+
+con = ldap.initialize('ldap://localhost')
+
+script can be called in pre section of kickstart system.
+resulting host information can then be sourced to set
+host specific kickstart variables.
+
+ usage:
+ wget -c -O /tmp/hostdetails http://<ldap_server>/cgi-bin/gethostdetails.py?servername=<unique_servername_cn>
+
+ e.g:
+ the following run on the installing host will get host details for consta and save in /tmp/hostdetails
+ wget -c -O /tmp/hostdetails http://localhost/cgi-bin/gethostdetails.py?servername=consta
+
+TEST this script by using the default configuration: 
+./gethostdetails.py servername=liberd
+
+ADDED a virtinstall cgi script to create virt install commands based on ldap entries

@@ -1,0 +1,17 @@
+---
+sysusers_all: - "user"
+              - "builder"
+sudousers:    - "user"
+resolv::nameservers: - 10.32.69.16
+ntp::ntp_servers: - '0.rhel.pool.ntp.org'
+                  - '1.rhel.pool.ntp.org'
+                  - '2.rhel.pool.ntp.org'
+postfix::mailhost: "int-mx1.example.com"
+postfix::maildomain: "example.com"
+rsyslog::log_server_shortname: 'logtsvkt03'
+iptables::allow_icmp: 'yes'
+iptables::allow_localhost: 'yes'
+iptables::log_failures: 'yes'
+iptables::ports:
+ 22:
+    tcp: 'allow'

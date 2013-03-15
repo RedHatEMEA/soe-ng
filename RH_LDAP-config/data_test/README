@@ -1,0 +1,8 @@
+
+N.B. setup.sh must be run twice: 
+
+1. run setup.sh 
+2. start then stop ldap to populate db dir. 
+3. run setup.sh (this will use slapadd to add initial db entries) 
+4. re-start ldap for final time, expect db config errors. 
+5. test with mozldap search lines in testsearch script. 

@@ -1,0 +1,62 @@
+{
+  "version": "2.2.0",
+  "types": [
+
+  ],
+  "project_page": "https://github.com/razorsedge/puppet-network",
+  "description": "This module manages Red Hat/Fedora traditional network configuration.\n\nIt allows for static, dhcp, and bootp configuration of normal and bonded interfaces.  There is support for aliases on normal and bonded interfaces.  It can configure static routes.  It can configure MTU, ETHTOOL_OPTS, and BONDING_OPTS on a per-interface basis.\n\nIt can configure the following files:\n\n* /etc/sysconfig/network\n* /etc/sysconfig/networking-scripts/route-*\n* /etc/sysconfig/networking-scripts/ifcfg-*\n\nClass and Define documentation is available via puppetdoc.",
+  "source": "git://github.com/razorsedge/puppet-network.git",
+  "checksums": {
+    "spec/defines/network_if_static_spec.rb": "96f63fde7884cdb2942def173d07c02f",
+    "spec/defines/network_bond_dynamic_spec.rb": "7760ecdf21160eb5af0a4d9733c738c0",
+    "spec/defines/network_if_alias_spec.rb": "fdb8cb20cc3aeb104bb05c9a3dde5924",
+    "templates/ifcfg-eth.erb": "40d667c3fa384edb3bdfe50e0b040782",
+    "templates/ifcfg-alias.erb": "df86ee61426f1904005dcf273e7f6ca3",
+    "tests/bond-dhcp.pp": "29e6d734007bf8d03404ba42c3336287",
+    "manifests/bond/alias.pp": "cd1590a67613d52ba8a8950382987b17",
+    "spec/defines/network_route_spec.rb": "7f47c96f44cdf90fed831dc5b4205a5e",
+    "spec/classes/network_init_spec.rb": "052191db145146056ddb6dcb2b4b64d6",
+    "tests/if-multiple.pp": "1c36a66cfb6b7c3a0b91b2f3d2d693cb",
+    "TODO.md": "54e5decbbfa31d748091078f4c3b607e",
+    "manifests/global.pp": "eea61803d7fe97be987100949e2beaac",
+    "templates/network.erb": "e4c5737d5fa7d2bf7b4ebfb5d1c91270",
+    "tests/if-bootp.pp": "1307bd2a32e9b237c9e0ab9c6591777f",
+    "manifests/if/alias.pp": "49ffe5a15996442072086301701c7077",
+    "manifests/if/static.pp": "f24c06a74741a43dcce0592dea28d326",
+    "templates/route-eth.erb": "f79e6af64a8cfd821ae8c614714a175c",
+    "tests/bond-alias.pp": "8e68af4138abee7d341b80530dc94448",
+    "Rakefile": "40485d97c221b33f8a2fe2b08cc4fcdf",
+    "spec/defines/network_bond_slave_spec.rb": "a7d2a816f746bb3ef241c55b59903919",
+    "tests/bond-static.pp": "05c8af7d82525ec418a6bc1c3f4fdbcf",
+    "tests/if-alias.pp": "66466d9afbf4986c5cfd471799b97b73",
+    "manifests/bond/dynamic.pp": "2341a563c45103e4028f38d63c756742",
+    "manifests/route.pp": "2775cc7b99d635a56a30e301301317ff",
+    "spec/defines/network_bond_static_spec.rb": "e0d4209abf26300ac2625f754c5663aa",
+    "spec/defines/network_bond_alias_spec.rb": "0e4f523247aa59f02b434a40c3cdc832",
+    "templates/ifcfg-bond.erb": "6266b865eda7b2c50d6bcb18361d42e3",
+    "tests/if-dhcp.pp": "a0b9d46e372df31289ad61ffb568ad32",
+    "manifests/bond/slave.pp": "fe251b69cfdea4101584d2bb0348ac32",
+    "manifests/bond/static.pp": "849a1efc2d63776d4db6916b7ef12957",
+    "tests/if-static.pp": "d2e601f80dbbd82b7679bfabcd819d99",
+    "tests/init.pp": "153dc64fd6f05641b9040976e516b68a",
+    "README.md": "d44bdb1f331c72a205231463568d1c49",
+    "LICENSE": "4f960dc2fd2d219b183be6460aa70af3",
+    "tests/route.pp": "fe9b2d4ef321dd1efab8054a3466e1c2",
+    "Modulefile": "d4c59c297b681c20a21eb16a7187208e",
+    "manifests/init.pp": "a40ae725a8392d336935c4a684b60794",
+    "manifests/if/dynamic.pp": "2cb591f03fdaff21092f04001d0a2efc",
+    "spec/defines/network_global_spec.rb": "b7e7086d92b34f11221d894ab971b3f8",
+    "spec/defines/network_if_dynamic_spec.rb": "dedae5d918e0cda9b91e8c4a9227fcb7",
+    "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0"
+  },
+  "summary": "Puppet module to manage RedHat/Fedora traditional network configuration.",
+  "author": "razorsedge",
+  "name": "razorsedge-network",
+  "license": "Apache License, Version 2.0",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 2.3.0"
+    }
+  ]
+}

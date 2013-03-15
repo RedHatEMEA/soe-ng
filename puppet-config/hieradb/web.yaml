@@ -1,0 +1,11 @@
+---
+iptables::allow_icmp: 'yes'
+iptables::allow_localhost: 'yes'
+iptables::log_failures: 'yes'
+iptables::ports:
+ 22:
+    tcp: 'allow'
+ 80:
+    tcp: 'allow'
+ 443:
+    tcp: 'allow'

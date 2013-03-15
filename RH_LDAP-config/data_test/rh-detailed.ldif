@@ -1,0 +1,54 @@
+## DEFINE DIT ROOT/BASE/SUFFIX ####
+## uses RFC 2377 format
+## replace example and com as necessary below
+## or for experimentation leave as is
+
+## dcObject is an AUXILLIARY objectclass and MUST
+## have a STRUCTURAL objectclass (organization in this case)
+# this is an ENTRY sequence and is preceded by a BLANK line
+
+dn: dc=mydomain,dc=com
+description: RH machine installation LDAP hierarchy.  Original installation Red Hat GPS/consulting 2013
+objectClass: dcObject
+objectClass: organization
+o: rh, install
+
+dn: cn=Manager,dc=mydomain,dc=com
+objectclass: organizationalRole
+cn: Manager
+
+## FIRST Level hierarchy - machines
+## uses mixed upper and lower case for objectclass
+# this is an ENTRY sequence and is preceded by a BLANK line
+
+dn: ou=machines,dc=mydomain,dc=com
+ou: machines
+description: machines to install per remotesite
+objectclass: organizationalunit
+
+## dcObject is an AUXILLIARY objectclass and MUST
+## have a STRUCTURAL objectclass (organization in this case)
+# this is an ENTRY sequence and is preceded by a BLANK line
+
+dn: cn=vm239,ou=machines,dc=mydomain,dc=com
+objectClass: top
+objectClass: applicationProcess
+objectClass: rh
+cn: vm239
+Brand: RHEV
+Model: KVM
+country: GE
+state: Munich
+site: muc
+businessUnit: GPS
+serverType: free
+clusterName: REHV-COE
+designatedHostname: vm239.mydomain.com
+buildVersion: 1.0-1
+stage: dev
+firewall: normal
+designatedIp: 10.32.69.239
+designatedGateway: 10.32.69.254
+designatedNetmask: 255.255.255.0
+designatedVlan: 0
+
