@@ -35,16 +35,9 @@
 # [Remember: No empty lines between comments and class definition]
 class hosts {
 
-  case $::osfamily {
-    redhat, debian, suse: {
-      $config_file = '/etc/hosts'
-      $template = 'hosts/hosts.erb'
-      $ensure = 'present'
-    }
-    default: {
-      fail("Unsupported platform: ${::operatingsystem}")
-    }
-  }
+  $config_file = '/etc/hosts'
+  $template = 'hosts/hosts.erb'
+  $ensure = 'present'
 
   if $ensure == 'present' {
     $ensure_real = 'file'

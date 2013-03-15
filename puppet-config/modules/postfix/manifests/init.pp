@@ -29,7 +29,7 @@ class postfix($mailhost,$maildomain){
           mode  => 0644,
   }
   file {'/etc/postfix/main.cf':
-          content => template('postfix/main.cf'),
+          content => template('postfix/main.cf.erb'),
   }
   service { 'postfix':
     ensure => running,

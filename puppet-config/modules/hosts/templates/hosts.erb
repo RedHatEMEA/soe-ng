@@ -1,5 +1,5 @@
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-#/etc/hosts file 
-#hosts file managed by puppet 
-<%= designated_ip %>      <%= designated_hostname %> <%= designated_shortname %>
+#/etc/hosts file
+#hosts file managed by puppet
+<%= scope.lookupvar('::designated_ip') %>      <%= scope.lookupvar('::designated_hostname') %> <%= scope.lookupvar('::designated_shortname') %>

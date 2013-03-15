@@ -31,7 +31,7 @@ class ntp ($ntp_servers = ['0.rhel.pool.ntp.org','1.rhel.pool.ntp.org']){
     mode  => 0644,
   }
   file {'/etc/ntp.conf':
-    content => template('ntp/ntp.conf'),
+    content => template('ntp/ntp.conf.erb'),
   }
   service { 'ntpd':
     ensure => 'running',

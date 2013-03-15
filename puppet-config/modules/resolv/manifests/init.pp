@@ -25,7 +25,7 @@
 # === Copyright
 #
 # Copyright 2013 Christina Kyriakidou,
-class resolv ($nameservers='8.8.8.8'){
+class resolv ($nameservers=['8.8.8.8']){
   File {
         owner => 'root',
         group => 'root',

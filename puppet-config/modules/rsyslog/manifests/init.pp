@@ -32,7 +32,7 @@ class rsyslog ($log_server_shortname='') {
     }
 
     file {'/etc/rsyslog.conf':
-      content => template('rsyslog/rsyslog.conf')
+      content => template('rsyslog/rsyslog.conf.erb')
     }
 
     service {'syslog':

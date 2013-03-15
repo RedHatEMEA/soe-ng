@@ -1,16 +1,16 @@
 ##########################################################################
-# This is a Red Hat <% if is_virtual %>virtual<%else %>physical<% end -%> machine running on <%= site %> cluster <%= cluster_name %>#
-# Please check with <%= business_unit %> before making any changes to this machine.#
+# This is a Red Hat <% if scope.lookupvar('::is_virtual') %>virtual<%else %>physical<% end -%> machine running on <%=  scope.lookupvar('::site') %> cluster <%=  scope.lookupvar('::cluster_name') %>#
+# Please check with <%=  scope.lookupvar('::business_unit') %> before making any changes to this machine.#
 ##########################################################################
 
-<%= operatingsystem %> <%= operatingsystemrelease %> <%= architecture %>
+<%=  scope.lookupvar('::operatingsystem') %> <%=  scope.lookupvar('::operatingsystemrelease') %> <%=  scope.lookupvar('::architecture') %>
 
-FQDN:      <%= fqdn %> (<%= ipaddress %>)
-Firewall: <%= firewall %>
+FQDN:      <%=  scope.lookupvar('::fqdn') %> (<%=  scope.lookupvar('::ipaddress') %>)
+Firewall: <%=  scope.lookupvar('::firewall') %>
 <% if has_variable?("processor0") then -%>
-Processor: <%= processorcount %>x <%= processor0 %>
+Processor: <%=  scope.lookupvar('::processorcount') %>x <%=  scope.lookupvar('::processor0') %>
 <% end -%>
-Kernel:    <%= kernelrelease %>
-Memory:    <%= memorysize %>
+Kernel:    <%=  scope.lookupvar('::kernelrelease') %>
+Memory:    <%=  scope.lookupvar('::memorysize') %>
 
 
