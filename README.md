@@ -32,14 +32,19 @@ have key-value pairs for the following:
 to all the slapd commands, and the client ldapmodify commands in order to add
 and delete entries from the ldap database.
 
-    yum -y install openldap-servers openldap-clients
-    yum -y install httpd python-ldap
+```
+$ yum -y install openldap-servers openldap-clients
+$ yum -y install httpd python-ldap
+```
 
 2. Create a Database folder with ldap ownership and create a `DB_CONFIG` file
 
-    mkdir /var/lib/rh;
-    cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/rh/DB_CONFIG;
-    chown -R ldap.ldap /var/lib/rh
+```
+$ mkdir /var/lib/rh;
+$ cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/rh/DB_CONFIG;
+$ chown -R ldap.ldap /var/lib/rh
+```
+
 
 3. Edit the `slapd.conf` and the `rh.schema` to reflect your configuration and dc (i.e. change `dc=mydomain,dc=com` to
 `dc=mysubdomain,dc=example,dc=com`). Run `slappasswd` to create a Manager password output and copy it next to rootpw in
@@ -58,7 +63,9 @@ should work even if the ldap server is not running yet.
 
 7. Start the `slapd` daemon and search for your entry:
 
-    ldapsearch -b ou=machines,dc=yourdomain,dc=com -v  -x -LLL '(cn=shortname)'
+```
+$ ldapsearch -b ou=machines,dc=yourdomain,dc=com -v  -x -LLL '(cn=shortname)'
+```
 
 8. Edit the `cgi-scripts/gethostdetails.py` to reflect your entry and copy it in the `/var/www/cgi-bin folder`. Start the httpd entry.
 9. Use `wget -0  /tmp/hostdetails http://<ldap_server>/cgi-bin/gethostdetails.py?servername=<unique_servername_cn>` to test that you
@@ -70,10 +77,10 @@ get the desired output.
 2. Install puppet
 3. Add your puppet server to the ldap Server above using the `create_new_entry.sh` script and then adding the ldif file created
 to the database using `ldapmodify` (see create new entry output). Make sure that:
- - designatedHostname is lower case and the FQDN
- - cn is the shortname
- - stage is dev/qa/prod
- - serverType is free/web/app/db
+ - **designatedHostname** is lower case and the FQDN
+ - **cn** is the shortname
+ - **stage** is dev/qa/prod
+ - **serverType** is free/web/app/db
  - you can add more than one nics
  - all the other entries exist (you can put N/A next to them)
 4. Create an `/etc/facter/facts.d` folder and add the generated hostdetails file in there under the name `ENC-CONFIG.txt`.
@@ -83,5 +90,6 @@ to the database using `ldapmodify` (see create new entry output). Make sure that
 8. If you are not happy with what will change edit the `/etc/puppet-config/manifests/site.pp` to your satisfaction
 9. Test again and when you are happy, apply all changes
 
-    puppet apply --config /etc/puppet-config/puppet.conf /etc/puppet-config/manifests/site.pp
-
+```
+$ puppet apply --config /etc/puppet-config/puppet.conf /etc/puppet-config/manifests/site.pp
+```
