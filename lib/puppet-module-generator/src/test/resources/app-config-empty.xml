@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app-config xmlns="http://www.jboss.org/soe/appconfig/1.0" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:schemaLocation="http://www.jboss.org/soe/appconfig/1.0 app-config-1.0.xsd"
+			name="foo-empty"
+			version="1.0">
+</app-config>
+

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   targetNamespace="http://www.jboss.org/soe/appconfig/1.0" 
+		   xmlns:tns="http://www.jboss.org/soe/appconfig/1.0"
+		   elementFormDefault="qualified">
+	<xs:element name="app-config">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="dependencies" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="dependency" maxOccurs="unbounded" minOccurs="1">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="xs:anyType">
+											<xs:attribute name="name" type="xs:string" use="required" />
+											<xs:attribute name="version" type="xs:string" use="required" />
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="application-server" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="system-properties" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="property" maxOccurs="unbounded" minOccurs="1">
+											<xs:complexType>
+												<xs:complexContent>
+													<xs:extension base="xs:anyType">
+														<xs:attribute name="name" type="xs:string" use="required" />
+													</xs:extension>
+												</xs:complexContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="osgi" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="capability" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:complexContent>
+													<xs:extension base="xs:anyType">
+														<xs:attribute name="name" type="xs:string" use="required" />
+														<xs:attribute name="order" type="xs:int" use="optional" />
+													</xs:extension>
+												</xs:complexContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="logging" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="category" minOccurs="1" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:complexContent>
+													<xs:extension base="xs:anyType">
+														<xs:attribute type="xs:string" name="name" use="required" />
+														<xs:attribute type="xs:string" name="level" use="required" />
+													</xs:extension>
+												</xs:complexContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="restartOnCompletion" type="xs:boolean" use="optional" default="false" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="version" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

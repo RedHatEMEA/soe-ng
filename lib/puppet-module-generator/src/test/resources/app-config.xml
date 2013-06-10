@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app-config xmlns="http://www.jboss.org/soe/appconfig/1.0" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:schemaLocation="http://www.jboss.org/soe/appconfig/1.0 app-config-1.0.xsd"
+			name="foo"
+			version="1.0">
+	<dependencies>
+		<dependency name="fee" version="2.0" />
+	</dependencies>
+	<application-server restartOnCompletion="true">
+		<system-properties>
+			<property name="prop.key1" />
+			<property name="prop.key2" />
+			<property name="prop.key3" />
+		</system-properties>
+		<osgi>
+			<capability name="org.apache.felix.scr" order="1" />
+		</osgi>
+		<logging>
+			<category name="com.jboss.foo" level="INFO" />
+		</logging>
+	</application-server>
+</app-config>
+

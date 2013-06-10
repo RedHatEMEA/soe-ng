@@ -1,0 +1,7 @@
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <bindings schemaLocation="../xsd/app-config-1.0.xsd">
+        <schemaBindings>
+        	<package name="org.jboss.soe.appconfig.v1_0" />
+    	</schemaBindings>
+    </bindings>
+</bindings>

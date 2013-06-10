@@ -1,0 +1,10 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  
+  <!--
+    Creates a text field that shows the value of the "userPathToConfiguration" property.
+    When submitted, it will be passed to the corresponding constructor parameter.
+  -->
+  <f:entry title="Path to configuration file (default is config/app-config.xml)" field="userPathToConfiguration">
+    <f:textbox />
+  </f:entry>
+</j:jelly>

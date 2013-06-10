@@ -1,0 +1,6 @@
+<!--
+  This view is used to render the installed plugins page.
+-->
+<div>
+  This plugin is used to generate a Puppet module of an application's configuration.
+</div>
