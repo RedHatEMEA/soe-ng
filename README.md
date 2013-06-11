@@ -4,7 +4,7 @@ A central Hub for all scripts around our new SOE Initiative. We put them on
 github because we can manage Issues and do Release Planning.
 
 The libraries and Jenkins plugins listed below are to support the proposed approach for automating 
-application and JBoss EAP configuration. For further details refer to [Configuration Automation](wiki/Configuration-Automation) document.
+application and JBoss EAP configuration. For further details refer to [Configuration Automation](https://github.com/RedHatEMEA/soe-ng/wiki/Configuration-Automation) document.
 
 Jenkins Plugins
 ---
@@ -15,27 +15,8 @@ This Jenkins plugin is a wrapper for _Puppet Module Generator_ library.
 Libraries
 ---
 #### AppConfig Schema
-This project defines a schema for expressing application config which needs to be applied to JBoss EAP. An exapmle of a config descriptor based on this schema follows:
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<app-config xmlns="http://www.jboss.org/soe/appconfig/1.0" 
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-			xsi:schemaLocation="http://www.jboss.org/soe/appconfig/1.0 app-config-1.0.xsd"
-			name="foo"
-			version="1.0">
-	<application-server restartOnCompletion="true">
-		<system-properties>
-			<property name="webservice.endpoint" />
-		</system-properties>
-		<osgi>
-			<capability name="org.apache.felix.scr" order="1" />
-		</osgi>
-		<logging>
-			<category name="com.jboss.foo" level="INFO" />
-		</logging>
-	</application-server>
-</app-config>
-```
+This project defines a schema for expressing application config which needs to be applied to JBoss EAP. Example available 
+in [Configuration Automation](https://github.com/RedHatEMEA/soe-ng/wiki/Configuration-Automation) document.
 
 #### Puppet Module API
 A Java API modling Puppet module structure. This API can be used to generate Puppet modules.
