@@ -1,7 +1,10 @@
 # SOE-NG
 
 A central Hub for all scripts around our new SOE Initiative. We put them on
-github because we can manage Issues and do Release Planning
+github because we can manage Issues and do Release Planning.
+
+The libraries and Jenkins plugins listed below are to support the proposed approach for automating 
+application and JBoss EAP configuration. For further details refer to [Configuration Automation](wiki/Configuration-Automation) document.
 
 Jenkins Plugins
 ---
@@ -11,7 +14,6 @@ This Jenkins plugin is a wrapper for _Puppet Module Generator_ library.
 
 Libraries
 ---
-
 #### AppConfig Schema
 This project defines a schema for expressing application config which needs to be applied to JBoss EAP. An exapmle of a config descriptor based on this schema follows:
 ```xml
