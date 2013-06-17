@@ -11,18 +11,30 @@ Jenkins Plugins
 
 ### PuppetGen Jenkins Plugin
 This Jenkins plugin is a wrapper for _Puppet Module Generator_ library.
+https://github.com/RedHatEMEA/soe-ng/tree/master/jenkins/puppetgen-jenkins-plugin
+
+Maven Plugins
+---
+### PuppetGen Jenkins Plugin
+This maven plugin is a wrapper for _Puppet Module Generator_ library.
+https://github.com/RedHatEMEA/soe-ng/tree/master/maven/puppetgen-maven-plugin
 
 Libraries
 ---
 #### AppConfig Schema
-This project defines a schema for expressing application config which needs to be applied to JBoss EAP. Example available 
+This project defines a schema for expressing application config which needs to be applied to JBoss EAP.
+https://github.com/RedHatEMEA/soe-ng/tree/master/lib/app-config-schema
+
+Example available 
 in [Configuration Automation](https://github.com/RedHatEMEA/soe-ng/wiki/Configuration-Automation) document.
 
 #### Puppet Module API
 A Java API modling Puppet module structure. This API can be used to generate Puppet modules.
+https://github.com/RedHatEMEA/soe-ng/tree/master/lib/puppet-module-api
 
 #### Puppet Module Generator
 A Puppet module generator library that creates Puppet modules based on a config descriptor as defined in _AppConfig Schema_.
+https://github.com/RedHatEMEA/soe-ng/tree/master/lib/puppet-module-generator
 
 Scripts
 ---
