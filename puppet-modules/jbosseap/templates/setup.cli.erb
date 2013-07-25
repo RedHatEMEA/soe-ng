@@ -1,0 +1,11 @@
+connect
+
+
+############################
+##### Bind address ######
+############################
+/interface=management/:write-attribute(name=inet-address,value=<%= @bind_address_mgmt %>)
+/interface=public/:write-attribute(name=inet-address,value=<%= @bind_address %>)
+/socket-binding-group=standard-sockets/socket-binding=jgroups-mping/:write-attribute(name=multicast-address,value=<%= @mcast_address %>)
+/socket-binding-group=standard-sockets/socket-binding=jgroups-udp/:write-attribute(name=multicast-address,value=<%= @mcast_address %>)
+
