@@ -11,6 +11,8 @@
 		<jboss.user>jboss</jboss.user>
 		<jboss.group>jboss</jboss.group>
 		<jboss.rpm.version>7.1.3</jboss.rpm.version>
+		<jbossweb.rpm.version>1.1.24</jbossweb.rpm.version>
+		<hornetq.rpm.version>2.2.21</hornetq.rpm.version>
 	</properties>
 
 	<build>
@@ -66,8 +68,8 @@
 						<require>jbossas-appclient = ${jboss.rpm.version}</require>
 						<require>jbossas-bundles = ${jboss.rpm.version}</require>
 						<require>jbossas-core = ${jboss.rpm.version}</require>
-						<require>jbossas-hornetq-native = ${jboss.rpm.version}</require>
-						<require>jbossas-jbossweb-native = ${jboss.rpm.version}</require>
+						<require>jbossas-hornetq-native = ${hornetq.rpm.version}</require>
+						<require>jbossas-jbossweb-native = ${jbossweb.rpm.version}</require>
 						<require>jbossas-modules-eap = ${jboss.rpm.version}</require>
 						<require>jbossas-product-eap = ${jboss.rpm.version}</require>
 						<require>jbossas-standalone = ${jboss.rpm.version}</require>
