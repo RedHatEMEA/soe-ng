@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jboss.rpm</groupId>
-	<artifactId>brms-rpm</artifactId>
+	<artifactId>jboss-brms-rpm</artifactId>
 	<version>5.3.1-SNAPSHOT</version>
 	<packaging>rpm</packaging>
 	
@@ -55,6 +55,7 @@
 					</execution>
 				</executions>
 				<configuration>
+					<name>jboss-brms</name>
 					<group>JBoss</group>
 					<prefix>/usr/share/jbossas/standalone</prefix>
 					<copyright>Red Hat</copyright>
